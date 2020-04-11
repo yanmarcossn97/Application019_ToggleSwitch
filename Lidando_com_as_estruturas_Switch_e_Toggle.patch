@@ -1,0 +1,53 @@
+Index: app/src/main/java/com/example/application019_toggleswitch/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/application019_toggleswitch/MainActivity.java	(date 1586630410058)
++++ app/src/main/java/com/example/application019_toggleswitch/MainActivity.java	(date 1586630410058)
+@@ -0,0 +1,45 @@
++package com.example.application019_toggleswitch;
++
++import androidx.appcompat.app.AppCompatActivity;
++import android.os.Bundle;
++import android.view.View;
++import android.widget.Switch;
++import android.widget.TextView;
++import android.widget.ToggleButton;
++
++public class MainActivity extends AppCompatActivity {
++
++    private Switch switchSenha;
++    private ToggleButton toggleSenha;
++    private TextView viewResultado;
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_main);
++
++        switchSenha = findViewById(R.id.switchSenha);
++        toggleSenha = findViewById(R.id.toggleSenha);
++        viewResultado = findViewById(R.id.viewResultado);
++
++    }
++
++    public void salvarConfig(View view) {
++
++        boolean estadoSwitch = switchSenha.isChecked();
++        boolean estadoToggle = toggleSenha.isChecked();
++
++        if(estadoSwitch) {
++            viewResultado.setText("Switch ativado");
++        } else {
++            viewResultado.setText("Switch desativado");
++        }
++
++        if(estadoToggle) {
++            viewResultado.setText("Toggle ativado");
++        } else {
++            viewResultado.setText("");
++        }
++
++    }
++}
